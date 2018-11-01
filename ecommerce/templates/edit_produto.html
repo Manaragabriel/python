@@ -1,0 +1,13 @@
+{% include 'header.html'%}
+
+<div class="container">
+    <div class="col-md-12">
+        <form action="/save_edit_prod/" id="editProd" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary">Salvar Alterações</button>
+        </form>
+        
+        
+    </div>
+</div>

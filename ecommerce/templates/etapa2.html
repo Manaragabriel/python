@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+<br>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" action="/addimagens/">
+        {% csrf_token%}
+        <div class="form-group">
+            <input type="file" name="imagem"/>
+            <input type="file" name="imagem2"/>
+            <input type="file" name="imagem3"/>
+            <input type="file" name="imagem4"/>
+            <input type="file" name="imagem5"/>
+            <input type="file" name="imagem6"/>
+            <input type="submit" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+{% include 'cabecalho.html'%}
+<br>
+<div class="container">
+    
+        <div class="col-md-4"> 
+
+            <form method="POST" id="formlog">
+                {% csrf_token %}
+                <div class="form-group">
+                        <input type="text" class="form-control" placeholder="E-mail:" name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Senha:" name="password"/>
+                    </div>
+                
+            </form>
+            <button class="btn btn-primary"  onclick="login('/login_user/','#formlog','/cliente_info/');">Fazer Login</button>
+            <a href="#" data-toggle="modal" data-target="#senhaModal">Esqueceu sua senha?</a>
+            <br>
+            <a href="/cadastro/">Cadastre-se</a>
+        </div>
+        
+        
+
+</div>
+<br>
+<br>
+
+<div class="modal" id="senhaModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Digite seu email para recuperar a senha:</h2>
+                <form id="recupera" method="POST">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Email" class="form-control"/>
+                </form>
+                <button class="btn btn-primary" onclick="recuperar();">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% include 'rodape.html'%}

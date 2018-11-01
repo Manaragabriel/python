@@ -1,0 +1,52 @@
+{% include 'header.html'%}
+<br>
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-secondary p-2" data-toggle="modal" data-target="#formModal">Criar Departamento</button>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Departamento:</th>
+                <th scope="col">Ação:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in dpts%}
+                <tr>
+                    <td scope="col">{{d.departamento}}</td>
+                    <td scope="col"><a class="btn btn-primary" href="/remove_dpt/?id={{d.id}}">Excluir</a></td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+
+</div>
+
+<div class="modal" id="formModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="/caddpt/" enctype="multipart/form-data" id="formdpt">
+                {% csrf_token%}
+                <div class="modal-header">
+                    <h4 class="modal-title">Criar departamento</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                        <label>Nome do Departamento:</label>
+                        {{ form.departamento }}
+                    </div>
+                   
+                
+                </div>
+                
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="caddepartamento();">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

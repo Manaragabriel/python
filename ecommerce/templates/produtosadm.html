@@ -1,0 +1,60 @@
+{% include 'header.html'%}
+{% load replace %}
+<br>
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-secondary p-2" data-toggle="modal" data-target="#formModal">Cadastrar Produto</button>
+
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+           
+            <tr>
+                <th scope="col">Nome do produto:</th>
+                <th scope="col">Preço:</th>
+                <th scope="col">Quantidade:</th>
+                <th scope="col">Departamento:</th>
+                <th scope="col">Editar:</th>
+                <th scope="col">Excluir:</th>
+            </tr>
+        </thead>
+        <tboby>
+            {% for p in prod%}
+                <tr>
+                    <td scope="col">{{p.nome_produto|trocar}}</td>
+                    <td scope="col">{{p.preco}}</td>
+                    <td scope="col">{{p.quantidade}}</td>
+                    <td scope="col">{{p.dpt.departamento}}</td>
+                    <td scope="col"><a class="btn btn-primary" href="/edit_produto/?id={{p.id}}">Editar</a></td>
+                    <td scope="col"><a class="btn btn-primary" href="/remove_produto/?id={{p.id}}">Excluir</a></td>
+                </tr>
+            {% endfor %}
+        </tboby>
+    </table>
+</div>
+
+
+<div class="modal" id="formModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" enctype="multipart/form-data" id="formprod" action="/cadproduto/">
+                {% csrf_token %}
+                <div class="modal-header">
+                        <h4 class="modal-title">Cadastrar Produto</h4>
+                </div>
+                <div class="modal-body">
+                    {{ form.as_p}}
+                  
+                    
+                </div>
+            
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

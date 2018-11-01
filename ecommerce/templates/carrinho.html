@@ -1,0 +1,52 @@
+{% include 'cabecalho.html'%}
+{% load replace %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Produto:</th>
+                <th scope="col">Preço Unitario:</th>
+                <th scope="col">Quantidade:</th>
+                <th scope="col">Disponibilidade:</th>
+                <td></td>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for d in dados%}
+                <tr>
+                    <td>{{d.produto.nome_produto|trocar}}</td>
+                    <td>{{d.produto.preco}}</td>
+                
+                    <td>{{d.qtd}}</td>
+                    {% if d.produto.quantidade > 0 %}
+                        <td>Sim</td>
+                    {% else %}
+                        <td>Nao</td>
+                    {% endif %}
+                    <td><a class="btn btn-primary" href="/remove-carrinho/{{d.id}}">Remover</a></td>
+                   
+                </tr>
+
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <td></td>
+                <th>Total:</th>
+                <td>{{total}}</td>
+                <td><button class="btn btn-primary"> Comprar</button></td>
+            </tr>
+                
+        </tfoot>
+       
+    </table>
+</div>
+<br>
+
+
+
+
+{% include 'rodape.html'%}

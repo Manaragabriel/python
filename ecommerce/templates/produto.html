@@ -1,0 +1,29 @@
+{% include 'cabecalho.html'%}
+
+<br>
+<div class="container" >
+   <div class="row">
+        <div class="col-md-6">
+                <img src="/{{data.imagem.url}}" width="450px" height="250px"/>
+            </div>
+            <div class="col-md-6">
+               <h1>{{data.nome_produto}}</h1>
+               <p>Por apenas R${{data.preco}}</p>
+               <button class="btn btn-primary" onclick="addcarrinho({{data.id}});">Adicionar ao Carrinho</button>
+        </div>
+   </div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+    <h1>Sobre o produto:</h1>
+    <p>{{data.descricao}}</p>
+    <p><strong>Marca:</strong> {{data.marca}}</p>
+    <p><strong>Peso:</strong> {{data.peso}}kg</p>
+    <p><strong>Altura:</strong> {{data.altura}}cm</p>
+    <p><strong>Largura:</strong> {{data.largura}}cm</p>
+</div>
+
+<br>
+{% include 'rodape.html' %}

@@ -1,0 +1,21 @@
+{% include 'cabecalho.html' %}
+<br>
+<br>
+<div class="container">
+    {% for d in data%}
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-3">          
+                    <img src="/{{d.imagem.url}}" width="150px" height="120px"/>
+                </div>
+                <div class="col-md-3">
+                    <h3><a href="/produto/{{d.nome_produto}}">{{d.nome_produto}}</a></h3>
+                </div> 
+            
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+
+{% include 'rodape.html'%}

@@ -1,0 +1,21 @@
+{% include 'cabecalho.html'%}
+{% load replace %}
+<br>
+<div class="container">
+    <h1>Novidades:</h1>
+    <div class="row">
+        {% for p in produtos%}
+            <div class="col-md-3 vitrine">
+                <img class="img-responsive" src="{{p.imagem.url}}" width="100px;" height="100px;"/>
+                <h2><a href="/produto/{{p.nome_produto}}" class="linkshome">{{p.nome_produto|trocar }}</a></h2>
+                <span>Por {{p.preco}} á vista</span>
+                <br>
+                <a href="/addcarrinho/{{p.id}}"class="btn btn-primary">Comprar</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<br>
+
+{% include 'rodape.html'%}

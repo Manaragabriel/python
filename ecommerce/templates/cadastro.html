@@ -1,0 +1,33 @@
+{% include 'cabecalho.html'%}
+<br>
+<div class="container">
+
+    <form method="POST" action="/caduser/" id="caduser">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Digite seu nome completo:</label>
+            {{form.nome}}
+        </div>
+        <div class="form-group">
+            <label>Digite seu E-mail:</label>
+            {{form.email}}
+        </div>
+        <div class="form-group">
+            <label>Digite uma senha</label>
+            {{form.password}}
+        </div>
+        <div class="form-group">
+            <label>Confirme a senha:</label>
+            {{form.password2}}
+        </div>
+        <div class="form-group">
+            <label>Digite seu telefone ou celular:</label>
+            {{form.tel}}
+        </div>
+        <div class="form-group">
+            <label>Digite seu CPF:</label>
+            {{form.cpf}}
+        </div>
+    </form>
+    <button class="btn btn-primary" onclick="caduser('/caduser/','#caduser','/paineluser/');">Cadastrar</button>
+</div>

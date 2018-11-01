@@ -1,0 +1,18 @@
+.links{
+    color: white !important;
+}
+.linkshome{
+    color: grey;
+    font-family: Georgia;
+    font-size: 22px;
+}
+span{
+    color: black;
+}
+.mlateral{
+    background: ghostwhite;
+}
+.mlateral li{
+    border-bottom: 1px solid gray;
+    
+}

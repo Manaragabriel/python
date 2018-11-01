@@ -1,0 +1,65 @@
+
+{% include 'cabecalho.html'%}
+<br>
+<div class="container">
+    <div class="row">
+        {% include 'menu_painel_user.html'%}
+        <div class="col-md-9">
+            <form>
+                <p>Nome: {{form.nome}}</p>
+                <p>Email: {{form.email}}</p>
+                <p>Telefone: {{form.tel}}</p>
+                <p>CPF: {{form.cpf}}</p>
+                <button class="btn btn-primary">Salvar alterações</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <br>
+            <br>
+            <h3>Seus endereços:</h3>
+            {% for e in enderecos%}
+                <p>Cep: {{e.cep}}</p>
+                <p>Rua: {{e.rua}}</p>
+                <p>Rua: {{e.referencia}}</p>
+                <p>Bairro:: {{e.numero}}</p>
+                <p>Numero: {{e.numero}}</p>
+                <p>Cidade: {{e.cidade}}</p>
+                <p>Estado: {{e.estado}}</p>
+                <hr>
+            {% endfor %}
+            <br>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#formModal">Cadastrar endereço</button>
+        </div>
+
+    </div>
+</div>
+<br>
+   
+
+<div class="modal" id="formModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+               
+                   
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cadastrar Endereco</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form_endereco" method="POST"> 
+                            
+                            {% csrf_token %}   
+                            {{ form_end }}
+                        </form>  
+                    </div>
+                    
+                
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="cadastros('/cad_endereco/','#form_endereco','/cliente_info/');" >Salvar</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+{% include 'rodape.html' %}
